@@ -19,6 +19,7 @@ sendBtn.addEventListener("click", function (e) {
   //send data to the webhook
   formResponse.append("sendto", sendTo);
   formResponse.append("message", message);
+
   fetch(webhookUrl, {
     method: "POST",
     body: formResponse,
@@ -30,6 +31,10 @@ sendBtn.addEventListener("click", function (e) {
       //   form.style.display = "none";
       failure.style.display = "block";
       failure.innerHTML = `<div>Your emails has been sent</div>`;
+    })
+    .catch((err) => {
+      failure.style.display = "block";
+      failure.innerHTML = `<div>${err}</div>`;
     });
 
   //
