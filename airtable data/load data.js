@@ -65,7 +65,7 @@ getData.then((data) => {
     const refCountTag = document.querySelector("#refCount");
     refCountTag.innerHTML = `${refCount}`;
   } else {
-    oaderLogo.style.display = "none";
+    loaderLogo.style.display = "none";
     loaderHeadline.style.display = "block";
     loaderHeadline.innerHTML =
       "Somethings not right, please check your dashboard link";
