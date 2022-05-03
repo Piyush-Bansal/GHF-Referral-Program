@@ -2,6 +2,7 @@
 const queryString = window.location.search;
 const urlPara = new URLSearchParams(queryString);
 const refCode = urlPara.get("uuid");
+console.log(uuid);
 
 //grab loader element data
 const loaderContainer = document.querySelector(".ref_loader");
