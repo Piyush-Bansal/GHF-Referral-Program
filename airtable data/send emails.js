@@ -36,7 +36,7 @@ sendBtn.addEventListener("click", function (e) {
       console.error(err);
       sendBtn.value = "Send";
       failure.style.display = "block";
-      failure.innerHTML = `<div>${err}</div>`;
+      failure.innerHTML = `<div>Something went wrong, please try again later.</div>`;
     });
 
   //
