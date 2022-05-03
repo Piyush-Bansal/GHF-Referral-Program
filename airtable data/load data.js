@@ -20,7 +20,7 @@ if (refCode == null) {
 
 let responseData;
 
-const url = `https://api.airtable.com/v0/apptPNUvXdxLoYcaz/Referred?maxRecords=1&view=Grid%20view&filterByFormula%3D%7BreferralCode%7D%3D%22${refCode}%22`;
+const url = `https://api.airtable.com/v0/apptPNUvXdxLoYcaz/Referred?maxRecords=10&view=Grid%20view&filterByFormula%3D%7BreferralCode%7D%3D%22${refCode}%22`;
 const auth = "keyATbFCUlFQ30Bqz";
 
 const loadData = async () => {
