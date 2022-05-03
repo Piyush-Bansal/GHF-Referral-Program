@@ -18,7 +18,7 @@ sendBtn.addEventListener("click", function (e) {
   formResponse.append("message", message);
   fetch(webhookUrl, {
     method: "POST",
-    body: formData,
+    body: formResponse,
   })
     .then((response) => response.json())
     .then((data) => console.log(data));
