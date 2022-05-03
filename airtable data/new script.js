@@ -4,6 +4,8 @@ const urlPara = new URLSearchParams(queryString);
 const refCode = urlPara.get("uuid");
 console.log(refCode);
 
+console.log("it works");
+
 // if uuid is empty
 if (refCode == null) {
   console.log("not found");
