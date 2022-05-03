@@ -1,4 +1,4 @@
-const refCode = "TINABC";
+const refCode = "INABC";
 const url = `https://api.airtable.com/v0/apptPNUvXdxLoYcaz/Referred?filterByFormula=%7BreferralCode%7D%3D%22${refCode}%22&maxRecords=1&pageSize=1&view=Grid+view`;
 const auth = "keyATbFCUlFQ30Bqz";
 
@@ -9,4 +9,4 @@ fetch(url, {
   },
 })
   .then((response) => response.json())
-  .then((data) => console.log(data));
+  .then((data) => console.log(data.records.length));

@@ -2,7 +2,6 @@
 const queryString = window.location.search;
 const urlPara = new URLSearchParams(queryString);
 const refCode = urlPara.get("uuid");
-console.log(refCode);
 
 //grab loader element data
 const loaderContainer = document.querySelector(".ref_loader");
@@ -11,7 +10,6 @@ const loaderHeadline = document.querySelector(".ref_loader-headline");
 
 // if uuid is empty
 if (refCode == null) {
-  console.log("not found");
   loaderLogo.style.display = "none";
   loaderHeadline.style.display = "block";
   loaderHeadline.innerHTML =
@@ -34,12 +32,15 @@ const loadData = async () => {
 
     if (response.ok) {
       const data = await response.json();
-      console.log(data);
       return data.records.map((items) => {
         return items.fields;
       });
     } else {
       throw Error(response.statusText);
+      loaderLogo.style.display = "none";
+      loaderHeadline.style.display = "block";
+      loaderHeadline.innerHTML =
+        "Somethings not right, please check back in sometime";
     }
   } catch (err) {
     console.error(err);
@@ -48,6 +49,7 @@ const loadData = async () => {
 
 const getData = loadData();
 getData.then((data) => {
+  loaderContainer.style.display = "none";
   console.log(data[0]);
   responseData = data[0];
 
