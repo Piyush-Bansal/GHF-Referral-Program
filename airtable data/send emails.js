@@ -2,7 +2,6 @@
 const sendToTag = document.querySelector("#send");
 const messageTag = document.querySelector("#email");
 const sendBtn = document.querySelector("#sendBttn");
-const success = document.querySelector(".w-form-done");
 const failure = document.querySelector(".w-form-fail");
 const form = document.querySelector("#wf-form-Share-email");
 
@@ -28,6 +27,7 @@ sendBtn.addEventListener("click", function (e) {
     .then((data) => {
       console.log(data);
       sendBtn.innerHTML = "Send";
+      //   form.style.display = "none";
       failure.style.display = "block";
       failure.innerHTML = `<div>Your emails has been sent</div>`;
     });
