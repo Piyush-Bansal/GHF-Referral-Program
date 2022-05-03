@@ -2,6 +2,9 @@
 const sendToTag = document.querySelector("#send");
 const messageTag = document.querySelector("#email");
 const sendBtn = document.querySelector("#sendBttn");
+const success = document.querySelector(".w-form-done");
+const failure = document.querySelector(".w-form-fail");
+const form = document.querySelector("#wf-form-Share-email");
 
 //webhook address
 const webhookUrl = "https://hook.us1.make.com/9bjsg4zukmh6gxd1ogihei7fq7vj69u1";
@@ -9,6 +12,7 @@ const webhookUrl = "https://hook.us1.make.com/9bjsg4zukmh6gxd1ogihei7fq7vj69u1";
 //add event listner to the submit button
 sendBtn.addEventListener("click", function (e) {
   e.preventDefault();
+  sendBtn.innerHTML = "Sending...";
   let formResponse = new FormData();
   const sendTo = sendToTag.value;
   const message = messageTag.value;
@@ -21,6 +25,12 @@ sendBtn.addEventListener("click", function (e) {
     body: formResponse,
   })
     .then((response) => response.json())
-    .then((data) => console.log(data));
+    .then((data) => {
+      console.log(data);
+      sendBtn.innerHTML = "Send";
+      failure.style.display = "block";
+      failure.innerHTML = `<div>Your emails has been sent</div>`;
+    });
+
   //
 });
