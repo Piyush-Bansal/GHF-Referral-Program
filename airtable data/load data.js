@@ -52,14 +52,22 @@ getData.then((data) => {
   loaderContainer.style.display = "none";
   console.log(data[0]);
   responseData = data[0];
+  if (responseData != undefined) {
+    loaderContainer.style.display = "none";
 
-  //update data in the page
-  const firstName = responseData.firstName;
-  const lastName = responseData.lastName;
-  const refCount = responseData.totalReferrals;
+    //update data in the page
+    const firstName = responseData.firstName;
+    const lastName = responseData.lastName;
+    const refCount = responseData.totalReferrals;
 
-  const userNameTag = document.querySelector("#userName");
-  userNameTag.innerHTML = `${firstName} ${lastName}`;
-  const refCountTag = document.querySelector("#refCount");
-  refCountTag.innerHTML = `${refCount}`;
+    const userNameTag = document.querySelector("#userName");
+    userNameTag.innerHTML = `${firstName} ${lastName}`;
+    const refCountTag = document.querySelector("#refCount");
+    refCountTag.innerHTML = `${refCount}`;
+  } else {
+    oaderLogo.style.display = "none";
+    loaderHeadline.style.display = "block";
+    loaderHeadline.innerHTML =
+      "Somethings not right, please check your dashboard link";
+  }
 });
