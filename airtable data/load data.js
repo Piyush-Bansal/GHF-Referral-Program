@@ -13,7 +13,8 @@ if (refCode == null) {
   console.log("not found");
   loaderLogo.style.display = "none";
   loaderHeadline.style.display = "block";
-  loaderHeadline.innerHTML = "Somethings not right, please check your link";
+  loaderHeadline.innerHTML =
+    "Somethings not right, please check your dashboard link";
 }
 
 let responseData;
