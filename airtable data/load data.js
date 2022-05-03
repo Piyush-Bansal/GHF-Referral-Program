@@ -2,13 +2,18 @@
 const queryString = window.location.search;
 const urlPara = new URLSearchParams(queryString);
 const refCode = urlPara.get("uuid");
-console.log(refCode);
 
-console.log("it works");
+//grab loader element data
+const loaderContainer = document.querySelector(".ref_loader");
+const loaderLogo = document.querySelector(".ref_loader-logo");
+const loaderHeadline = document.querySelector(".ref_loader-headline");
 
 // if uuid is empty
 if (refCode == null) {
   console.log("not found");
+  loaderLogo.style.display = "none";
+  loaderHeadline.style.display = "block";
+  loaderHeadline.innerHTML = "Somethings not right, please check your link";
 }
 
 let responseData;
