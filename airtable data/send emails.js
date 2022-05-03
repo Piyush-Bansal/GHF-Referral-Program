@@ -34,7 +34,7 @@ sendBtn.addEventListener("click", function (e) {
     })
     .catch((err) => {
       console.error(err);
-      submit.value = "Submit";
+      sendBtn.value = "Send";
       failure.style.display = "block";
       failure.innerHTML = `<div>${err}</div>`;
     });
