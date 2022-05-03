@@ -33,6 +33,8 @@ sendBtn.addEventListener("click", function (e) {
       failure.innerHTML = `<div>Your emails has been sent</div>`;
     })
     .catch((err) => {
+      console.error(err);
+      submit.value = "Submit";
       failure.style.display = "block";
       failure.innerHTML = `<div>${err}</div>`;
     });
