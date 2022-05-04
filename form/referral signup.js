@@ -8,9 +8,6 @@ const institute = document.querySelector("#institute");
 const email = document.querySelector("#email");
 let records;
 
-const selectChange = document.querySelectorAll(".option");
-console.log(selectChange);
-
 //grab referral code from the url and input it in the form field
 const queryString = window.location.search;
 const urlPara = new URLSearchParams(queryString);
@@ -51,6 +48,8 @@ getData().then((data) => {
       selection.innerHTML +
       `<li data-value="${element.Name}" class="option">${element.Name}</li>`;
   });
+
+  const selectChange = document.querySelectorAll(".option");
   selectChange.forEach((item) => {
     item.addEventListener("click", function () {
       console.log(institute.value);
