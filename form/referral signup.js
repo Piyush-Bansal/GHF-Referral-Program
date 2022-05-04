@@ -7,7 +7,8 @@ const referralInput = document.querySelector("#referral-code");
 const institute = document.querySelector("#institute");
 const email = document.querySelector("#email");
 let records;
-const selection = document.querySelector(".nice-select .list");
+const selection = document.querySelector(".nice-select
+.list");
 
 //grab referral code from the url and input it in the form field
 const queryString = window.location.search;
