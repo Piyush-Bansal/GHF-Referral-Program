@@ -21,10 +21,6 @@ const institute = document.querySelector("#institute");
 const email = document.querySelector("#email");
 let records;
 
-submit.addEventListener("click", (e) => {
-  e.preventDefault();
-});
-
 const getData = function () {
   return fetch(dropdownURL, {
     method: "GET",
