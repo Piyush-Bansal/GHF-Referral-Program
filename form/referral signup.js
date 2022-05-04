@@ -4,6 +4,9 @@
 // const error = document.querySelector(".w-form-fail");
 // let file = document.getElementById("file");
 const referralInput = document.querySelector("#referral-code");
+const institute = document.querySelector("#institute");
+const email = document.querySelector("#email");
+let records;
 
 //grab referral code from the url and input it in the form field
 const queryString = window.location.search;
@@ -16,10 +19,6 @@ referralInput.value = refCode;
 const dropdownURL =
   "https://api.airtable.com/v0/appv69J1ch06OaHjD/Table%201?maxRecords=300&view=Grid%20view";
 const dropdownAuth = "keyAmtKToVnkwqhsB";
-
-const institute = document.querySelector("#institute");
-const email = document.querySelector("#email");
-let records;
 
 const getData = function () {
   return fetch(dropdownURL, {
