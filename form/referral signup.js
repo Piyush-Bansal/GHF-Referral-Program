@@ -8,6 +8,7 @@ const institute = document.querySelector("#institute");
 const email = document.querySelector("#email");
 let records;
 const selection = document.querySelector(".list");
+const selectChange = document.querySelector("#change");
 
 //grab referral code from the url and input it in the form field
 const queryString = window.location.search;
@@ -50,7 +51,7 @@ getData().then((data) => {
   });
 });
 
-institute.addEventListener("onChange", function () {
+institute.addEventListener("onClick", function () {
   console.log(institute.value);
   const selected = institute.value;
   const value = records.find((record) => record.Name == selected);
