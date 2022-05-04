@@ -51,15 +51,14 @@ getData().then((data) => {
       selection.innerHTML +
       `<li data-value="${element.Name}" class="option">${element.Name}</li>`;
   });
-});
-
-selectChange.forEach((item) => {
-  item.addEventListener("click", function () {
-    console.log(institute.value);
-    const selected = institute.value;
-    const value = records.find((record) => record.Name == selected);
-    console.log(value);
-    email.setAttribute("pattern", `${value.regex}`);
+  selectChange.forEach((item) => {
+    item.addEventListener("click", function () {
+      console.log(institute.value);
+      const selected = institute.value;
+      const value = records.find((record) => record.Name == selected);
+      console.log(value);
+      email.setAttribute("pattern", `${value.regex}`);
+    });
   });
 });
 
