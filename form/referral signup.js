@@ -51,6 +51,7 @@ getData().then((data) => {
 });
 
 institute.addEventListener("change", () => {
+  console.log("change");
   const selected = institute.value;
   const value = records.find((record) => record.Name == selected);
   console.log(value);
