@@ -8,7 +8,7 @@ const institute = document.querySelector("#institute");
 const email = document.querySelector("#email");
 let records;
 
-const selectChange = document.querySelector("#change");
+const selectChange = document.querySelectorAll(".list li");
 
 //grab referral code from the url and input it in the form field
 const queryString = window.location.search;
@@ -52,12 +52,14 @@ getData().then((data) => {
   });
 });
 
-selectChange.addEventListener("click", function () {
-  console.log(institute.value);
-  const selected = institute.value;
-  const value = records.find((record) => record.Name == selected);
-  console.log(value);
-  email.setAttribute("pattern", `${value.regex}`);
+selectChange.forEach((item) => {
+  item.addEventListener("click", function () {
+    console.log(institute.value);
+    const selected = institute.value;
+    const value = records.find((record) => record.Name == selected);
+    console.log(value);
+    email.setAttribute("pattern", `${value.regex}`);
+  });
 });
 
 // let formData = new FormData();
