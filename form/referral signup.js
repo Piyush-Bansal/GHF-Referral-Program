@@ -1,3 +1,4 @@
+console.log("linked");
 const formTag = document.querySelector("ghf-referral");
 const submit = document.querySelector("#submit");
 const success = document.querySelector(".w-form-done");
