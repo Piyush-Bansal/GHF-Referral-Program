@@ -52,7 +52,7 @@ getData().then((data) => {
   });
 });
 
-selectChange.addEventListener("onClick", function () {
+selectChange.addEventListener("click", function () {
   console.log(institute.value);
   const selected = institute.value;
   const value = records.find((record) => record.Name == selected);
