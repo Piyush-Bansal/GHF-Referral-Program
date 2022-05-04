@@ -11,6 +11,53 @@ const urlPara = new URLSearchParams(queryString);
 const refCode = urlPara.get("uuid");
 referralInput.value = refCode;
 
+//input dropdown options from the airtable
+
+const dropdownURL =
+  "https://api.airtable.com/v0/appv69J1ch06OaHjD/Table%201?maxRecords=300&view=Grid%20view";
+const dropdownAuth = "keyAmtKToVnkwqhsB";
+
+const institute = document.querySelector("#institute");
+const email = document.querySelector("#email");
+let records;
+
+submit.addEventListener("click", (e) => {
+  e.preventDefault();
+});
+
+const getData = function () {
+  return fetch(dropdownURL, {
+    method: "GET",
+    headers: {
+      Authorization: "Bearer " + dropdownAuth,
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      return data.records.map((record) => {
+        return record.fields;
+      });
+    });
+};
+
+getData().then((data) => {
+  records = data;
+  console.log(records);
+
+  records.forEach((element) => {
+    institute.innerHTML =
+      institute.innerHTML +
+      `<option value ="${element.Name}">${element.Name}</option>`;
+  });
+});
+
+institute.addEventListener("change", () => {
+  const selected = institute.value;
+  const value = records.find((record) => record.Name == selected);
+  console.log(value);
+  email.setAttribute("pattern", `${value.regex}`);
+});
+
 // let formData = new FormData();
 
 // file.addEventListener(
