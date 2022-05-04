@@ -50,8 +50,8 @@ getData().then((data) => {
   });
 });
 
-institute.addEventListener("onChange", () => {
-  console.log("changes");
+institute.addEventListener("onChange", function () {
+  console.log(institute.value);
   const selected = institute.value;
   const value = records.find((record) => record.Name == selected);
   console.log(value);
