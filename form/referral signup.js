@@ -1,8 +1,15 @@
-const formTag = document.querySelector("form");
+const formTag = document.querySelector("ghf-referral");
 const submit = document.querySelector("#submit");
 const success = document.querySelector(".w-form-done");
 const error = document.querySelector(".w-form-fail");
 let file = document.getElementById("file");
+const referralInput = document.querySelector("#referral-code");
+
+//grab referral code from the url and input it in the form field
+const queryString = window.location.search;
+const urlPara = new URLSearchParams(queryString);
+const refCode = urlPara.get("uuid");
+referralInput.value = refCode;
 
 let formData = new FormData();
 
