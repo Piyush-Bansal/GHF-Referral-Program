@@ -7,7 +7,7 @@ const referralInput = document.querySelector("#referral-code");
 const institute = document.querySelector("#institute");
 const email = document.querySelector("#email");
 let records;
-const selection = document.querySelector(".list");
+
 const selectChange = document.querySelector("#change");
 
 //grab referral code from the url and input it in the form field
@@ -42,6 +42,7 @@ getData().then((data) => {
   console.log(records);
 
   records.forEach((element) => {
+    const selection = document.querySelector(".list");
     institute.innerHTML =
       institute.innerHTML +
       `<option value ="${element.Name}">${element.Name}</option>`;
