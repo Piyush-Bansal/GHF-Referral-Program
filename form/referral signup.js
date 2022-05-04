@@ -61,8 +61,9 @@ getData().then((data) => {
   //   });
 });
 
-institute.addEventListener("change", () => {
-  const selected = institute.value;
+institute.addEventListener("change", (e) => {
+  const selected = e.target.value;
+  console.log(selected);
   const value = records.find((record) => record.Name == selected);
   console.log(value);
   email.setAttribute("pattern", `${value.regex}`);
