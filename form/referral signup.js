@@ -46,7 +46,7 @@ getData().then((data) => {
       `<option value ="${element.Name}">${element.Name}</option>`;
     selection.innerHTML =
       selection.innerHTML +
-      `<li data-value="${element.Name}" class="option"><span class="test>${element.Name}</span></li>`;
+      `<li data-value="${element.Name}" class="option"><span class="test">${element.Name}</span></li>`;
   });
 
   const selectChange = document.querySelectorAll(".test");
