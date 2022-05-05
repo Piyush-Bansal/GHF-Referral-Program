@@ -1,4 +1,4 @@
-// const formTag = document.querySelector("ghf-referral");
+s; // const formTag = document.querySelector("ghf-referral");
 // const submit = document.querySelector("#submit");
 // const success = document.querySelector(".w-form-done");
 // const error = document.querySelector(".w-form-fail");
@@ -46,10 +46,10 @@ getData().then((data) => {
       `<option value ="${element.Name}">${element.Name}</option>`;
     selection.innerHTML =
       selection.innerHTML +
-      `<li data-value="${element.Name}" class="option">${element.Name}</li>`;
+      `<li data-value="${element.Name}" class="option"><span class="test>${element.Name}</span></li>`;
   });
 
-  const selectChange = document.querySelectorAll(".option");
+  const selectChange = document.querySelectorAll(".test");
   selectChange.forEach((item) => {
     item.addEventListener("click", function () {
       console.log(institute.value);
