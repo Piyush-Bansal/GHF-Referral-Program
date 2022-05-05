@@ -1,4 +1,4 @@
-s; // const formTag = document.querySelector("ghf-referral");
+// const formTag = document.querySelector("ghf-referral");
 // const submit = document.querySelector("#submit");
 // const success = document.querySelector(".w-form-done");
 // const error = document.querySelector(".w-form-fail");
@@ -46,19 +46,29 @@ getData().then((data) => {
       `<option value ="${element.Name}">${element.Name}</option>`;
     selection.innerHTML =
       selection.innerHTML +
-      `<li data-value="${element.Name}" class="option"><span class="test">${element.Name}</span></li>`;
-  });
-
-  const selectChange = document.querySelectorAll(".test");
-  selectChange.forEach((item) => {
-    item.addEventListener("click", function () {
-      console.log(institute.value);
-      const selected = institute.value;
-      const value = records.find((record) => record.Name == selected);
-      console.log(value);
-      email.setAttribute("pattern", `${value.regex}`);
+      `<li data-value="${element.Name}" class="option">${element.Name}</li>`;
+    const selectChange = document.querySelectorAll(".option");
+    selectChange.forEach((item) => {
+      item.addEventListener("click", function () {
+        console.log(institute.value);
+        const selected = institute.value;
+        const value = records.find((record) => record.Name == selected);
+        console.log(value);
+        email.setAttribute("pattern", `${value.regex}`);
+      });
     });
   });
+
+  // const selectChange = document.querySelectorAll(".option");
+  // selectChange.forEach((item) => {
+  //   item.addEventListener("click", function () {
+  //     console.log(institute.value);
+  //     const selected = institute.value;
+  //     const value = records.find((record) => record.Name == selected);
+  //     console.log(value);
+  //     email.setAttribute("pattern", `${value.regex}`);
+  //   });
+  // });
 });
 
 // let formData = new FormData();
