@@ -1,8 +1,8 @@
-// const formTag = document.querySelector("ghf-referral");
-// const submit = document.querySelector("#submit");
+const formTag = document.querySelector("ghf-referral");
+const submit = document.querySelector("#submit");
 // const success = document.querySelector(".w-form-done");
 // const error = document.querySelector(".w-form-fail");
-let file = document.getElementById("file");
+let file = document.getElementById("file-7");
 const referralInput = document.querySelector("#referral-code");
 const institute = document.querySelector("#institute");
 const email = document.querySelector("#email");
@@ -74,43 +74,49 @@ file.addEventListener(
   false
 );
 
-// //prevent default action
+// prevent default action
 
-// submit.addEventListener("click", (e) => {
-//   e.preventDefault();
-//   const name = document.querySelector("#name").value;
-//   const email = document.querySelector("#email").value;
-//   const code = document.querySelector("#code").value;
-//   submit.value = "loading...";
-//   formData.append("name", name);
-//   formData.append("email", email);
-//   formData.append("code", code);
+formTag.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const fname = document.querySelector("#fname").value;
+  const lname = document.querySelector("#lname").value;
+  const phoneNumber = document.querySelector("#phoneNumber").value;
+  const institute = document.querySelector("#institute").value;
+  const email = document.querySelector("#email").value;
+  const code = document.querySelector("#code").value;
+  submit.value = "loading...";
+  formData.append("fname", fname);
+  formData.append("email", email);
+  formData.append("code", code);
+  formData.append("lname", lname);
+  formData.append("phoneNumber", phoneNumber);
+  formData.append("institute", institute);
 
-//   // submit form values to webhook
-//   fetch("https://hook.us1.make.com/kf3c4ladtzej6htolylbi3xtqsztveio", {
-//     method: "POST",
-//     "Content-Type": "multipart/form-data; boundary=---generatedboundary",
-//     body: formData,
-//   })
-//     .then((response) => {
-//       if (response.ok) {
-//         return response.json();
-//       } else {
-//         return response.text().then((text) => {
-//           throw new Error(text);
-//         });
-//       }
-//     })
-//     .then((data) => {
-//       submit.value = "Submit";
-//       success.style.display = "block";
-//       //success.innerHTML = `${data.message}`;
-//     })
-//     .catch((err) => {
-//       console.error(err);
-//       submit.value = "Submit";
-//       error.style.display = "block";
-//       error.innerHTML = `
-// 			<div>${err}</div>`;
-//     });
-// });
+  // submit form values to webhook
+  fetch("https://hook.us1.make.com/b586jqtf2sgmuoyki5vxdcmzd5p69hiw", {
+    method: "POST",
+    "Content-Type": "multipart/form-data; boundary=---generatedboundary",
+    body: formData,
+  })
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        return response.text().then((text) => {
+          throw new Error(text);
+        });
+      }
+    })
+    .then((data) => {
+      submit.value = "Submit";
+      success.style.display = "block";
+      //success.innerHTML = `${data.message}`;
+    })
+    .catch((err) => {
+      console.error(err);
+      submit.value = "Submit";
+      error.style.display = "block";
+      error.innerHTML = `
+			<div>${err}</div>`;
+    });
+});
