@@ -7,6 +7,8 @@ let file = document.getElementById("file-7");
 const referralInput = document.querySelector("#referral-code");
 const institute = document.querySelector("#institute");
 const email = document.querySelector("#email");
+const phoneReferral = document.querySelector("#phone-referral");
+const emailReferral = document.querySelector("#email-referral");
 let records;
 
 //grab referral code from the url and input it in the form field
@@ -110,6 +112,9 @@ formTag.addEventListener("submit", (e) => {
     .then((data) => {
       submit.value = "submit";
       success.style.display = "block";
+      // add email and phone number values to the verify otp form
+      phoneReferral.innerHTML = phoneNumber;
+      emailReferral.innerHTML = email;
       //success.innerHTML = `${data.message}`;
     })
     .catch((err) => {
@@ -125,10 +130,50 @@ formTag.addEventListener("submit", (e) => {
 const verifyOTP = document.querySelector("#verify-otp");
 const backBtn = document.querySelector("#referral-back");
 const verifyForm = document.querySelector("#verify-otp-form");
+const verifySuccess = document.querySelector("#verify-otp-success");
+const verifyFailure = document.querySelector("#verify-otp-failure");
 
 //when back button is pressed hide verify OTP form and show GHF form
 backBtn.addEventListener("click", () => {
-  console.log("click");
   signupForm.style.display = "block";
   verifyForm.style.display = "none";
+});
+
+let verifyData = new FormData();
+verifyForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const smsOTP = document.querySelector("#sms-otp");
+  const emailOTP = document.querySelector("#email-otp");
+  verifyOTP.value = "Verifying...";
+  verifyData.append("smsOTP", smsOTP);
+  verifyData.append("emailOTP", emailOTP);
+
+  // submit values to a webhook
+  fetch("https://hook.us1.make.com/5xgo9ac6utvsgegjuirg0ref385a3w44", {
+    method: "POST",
+    "Content-Type": "multipart/form-data; boundary=---generatedboundary",
+    body: verifyData,
+  })
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        return response.text().then((text) => {
+          throw new Error(text);
+        });
+      }
+    })
+    .then((data) => {
+      verifyFailure.style.display = "none";
+      verifyForm.style.display = "none";
+      verifySuccess.style.display = "block";
+    })
+    .catch((err) => {
+      console.error(err);
+      verifyOTP.value = "Submit";
+      verifyFailure.style.display = "block";
+      verifySuccess.style.display = "none";
+      verifyFailure.innerHTML = `
+			<div>${err}</div>`;
+    });
 });
