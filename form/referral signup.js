@@ -126,7 +126,7 @@ const verifyOTP = document.querySelector("#verify-otp");
 const backBtn = document.querySelector("#referral-back");
 const verifyForm = document.querySelector("#verify-otp-form");
 
-//when back button is pressed hide verify OTP form and show GHF referral form
+//when back button is pressed hide verify OTP form and show GHF form
 backBtn.addEventListener("click", () => {
   signupForm.style.display = "block";
   verifyForm.style.display = "none";
