@@ -1,4 +1,5 @@
 const formTag = document.querySelector("#ghf-referral");
+const signupForm = document.querySelector("#referral-signup");
 const submit = document.querySelector("#submit");
 const success = document.querySelector(".w-form-done");
 const error = document.querySelector(".w-form-fail");
@@ -118,4 +119,15 @@ formTag.addEventListener("submit", (e) => {
       error.innerHTML = `
 			<div>${err}</div>`;
     });
+});
+
+//verify OTP form
+const verifyOTP = document.querySelector("#verify-otp");
+const backBtn = document.querySelector("#referral-back");
+const verifyForm = document.querySelector("#verify-otp-form");
+
+//when back button is pressed hide verify OTP form and show GHF referral form
+backBtn.addEventListener("click", () => {
+  signupForm.style.display = "block";
+  verifyForm.style.display = "none";
 });
