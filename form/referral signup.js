@@ -92,17 +92,6 @@ formTag.addEventListener("submit", (e) => {
   formData.append("phoneNumber", phoneNumber);
   formData.append("institute", institute);
 
-  //Error on wrong input for the email
-
-  email.addEventListener("input", function (event) {
-    if (email.validity.typeMismatch) {
-      email.setCustomValidity("We can only accept insitutional emails");
-      email.reportValidity();
-    } else {
-      email.setCustomValidity("");
-    }
-  });
-
   // submit form values to webhook
   fetch("https://hook.us1.make.com/b586jqtf2sgmuoyki5vxdcmzd5p69hiw", {
     method: "POST",
