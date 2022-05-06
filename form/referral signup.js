@@ -143,7 +143,9 @@ let verifyData = new FormData();
 verifyForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const smsOTP = document.querySelector("#sms-otp");
+  console.log(smsOTP);
   const emailOTP = document.querySelector("#email-otp");
+  console.log(emailOTP);
   verifyOTP.value = "Verifying...";
   verifyData.append("smsOTP", smsOTP);
   verifyData.append("emailOTP", emailOTP);
