@@ -142,9 +142,9 @@ backBtn.addEventListener("click", () => {
 let verifyData = new FormData();
 verifyForm.addEventListener("submit", (e) => {
   e.preventDefault();
-  const smsOTP = document.querySelector("#sms-otp");
+  const smsOTP = document.querySelector("#sms-otp").value;
   console.log(smsOTP);
-  const emailOTP = document.querySelector("#email-otp");
+  const emailOTP = document.querySelector("#email-otp").value;
   console.log(emailOTP);
   verifyOTP.value = "Verifying...";
   verifyData.append("smsOTP", smsOTP);
