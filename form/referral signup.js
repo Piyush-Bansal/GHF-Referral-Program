@@ -151,7 +151,7 @@ verifyForm.addEventListener("submit", (e) => {
   // submit values to a webhook
   fetch("https://hook.us1.make.com/5xgo9ac6utvsgegjuirg0ref385a3w44", {
     method: "POST",
-    "Content-Type": "multipart/form-data; boundary=---generatedboundary",
+    "Content-Type": "application/json",
     body: verifyData,
   })
     .then((response) => {
