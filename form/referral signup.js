@@ -92,7 +92,7 @@ submit.addEventListener("click", (e) => {
   formData.append("phoneNumber", phoneNumber);
   formData.append("institute", institute);
 
-  // submit form values to webhook
+  // submit form values to webhooks
   fetch("https://hook.us1.make.com/b586jqtf2sgmuoyki5vxdcmzd5p69hiw", {
     method: "POST",
     "Content-Type": "multipart/form-data; boundary=---generatedboundary",
