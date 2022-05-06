@@ -17,7 +17,7 @@ referralInput.value = refCode;
 //input dropdown options from the airtable
 
 const dropdownURL =
-  "https://api.airtable.com/v0/appv69J1ch06OaHjD/Table%201?maxRecords=300&view=Grid%20view";
+  "https://api.airtable.com/v0/appv69J1ch06OaHjD/Table%201?maxRecords=300&view=Grid%20view&sort%5B0%5D%5Bfield%5D=Name";
 const dropdownAuth = "keyAmtKToVnkwqhsB";
 
 const getData = function () {
