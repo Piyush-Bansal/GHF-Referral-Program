@@ -128,6 +128,7 @@ const verifyForm = document.querySelector("#verify-otp-form");
 
 //when back button is pressed hide verify OTP form and show GHF form
 backBtn.addEventListener("click", () => {
+  console.log("click");
   signupForm.style.display = "block";
   verifyForm.style.display = "none";
 });
