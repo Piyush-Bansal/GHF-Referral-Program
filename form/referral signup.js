@@ -1,7 +1,7 @@
 const formTag = document.querySelector("ghf-referral");
 const submit = document.querySelector("#submit");
-// const success = document.querySelector(".w-form-done");
-// const error = document.querySelector(".w-form-fail");
+const success = document.querySelector(".w-form-done");
+const error = document.querySelector(".w-form-fail");
 let file = document.getElementById("file-7");
 const referralInput = document.querySelector("#referral-code");
 const institute = document.querySelector("#institute");
@@ -108,7 +108,7 @@ submit.addEventListener("click", (e) => {
       }
     })
     .then((data) => {
-      submit.value = "Submit";
+      submit.value = "submit";
       success.style.display = "block";
       //success.innerHTML = `${data.message}`;
     })
