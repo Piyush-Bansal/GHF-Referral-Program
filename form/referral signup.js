@@ -1,4 +1,4 @@
-const formTag = document.querySelector("ghf-referral");
+const formTag = document.querySelector("#ghf-referral");
 const submit = document.querySelector("#submit");
 const success = document.querySelector(".w-form-done");
 const error = document.querySelector(".w-form-fail");
@@ -76,7 +76,7 @@ submit.addEventListener(
 
 // prevent default action
 
-submit.addEventListener("click", (e) => {
+formTag.addEventListener("submit", (e) => {
   e.preventDefault();
   const fname = document.querySelector("#first-name").value;
   const lname = document.querySelector("#last-name").value;
