@@ -64,8 +64,8 @@ let formData = new FormData();
 
 // add file attachement to the formData.
 
-submit.addEventListener(
-  "click",
+file.addEventListener(
+  "change",
   function handleFiles(e) {
     const fileList = this.files;
     formData.append("id", e.target.files[0]);
