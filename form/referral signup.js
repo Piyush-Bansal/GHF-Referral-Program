@@ -2,7 +2,7 @@
 // const submit = document.querySelector("#submit");
 // const success = document.querySelector(".w-form-done");
 // const error = document.querySelector(".w-form-fail");
-// let file = document.getElementById("file");
+let file = document.getElementById("file");
 const referralInput = document.querySelector("#referral-code");
 const institute = document.querySelector("#institute");
 const email = document.querySelector("#email");
@@ -61,16 +61,18 @@ getData().then((data) => {
   });
 });
 
-// let formData = new FormData();
+let formData = new FormData();
 
-// file.addEventListener(
-//   "change",
-//   function handleFiles(e) {
-//     const fileList = this.files;
-//     formData.append("id", e.target.files[0]);
-//   },
-//   false
-// );
+// add file attachement to the formData
+
+file.addEventListener(
+  "change",
+  function handleFiles(e) {
+    const fileList = this.files;
+    formData.append("id", e.target.files[0]);
+  },
+  false
+);
 
 // //prevent default action
 
