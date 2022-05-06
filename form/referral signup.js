@@ -68,7 +68,6 @@ let formData = new FormData();
 submit.addEventListener(
   "click",
   function handleFiles(e) {
-    submit.preventDefault();
     const fileList = this.files;
     formData.append("id", e.target.files[0]);
   },
