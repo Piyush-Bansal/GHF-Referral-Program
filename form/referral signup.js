@@ -65,14 +65,15 @@ let formData = new FormData();
 
 // add file attachement to the formData.
 
-// submit.addEventListener(
-//   "click",
-//   function handleFiles(e) {
-//     const fileList = this.files;
-//     formData.append("id", e.target.files[0]);
-//   },
-//   false
-// );
+submit.addEventListener(
+  "click",
+  function handleFiles(e) {
+    submit.preventDefault();
+    const fileList = this.files;
+    formData.append("id", e.target.files[0]);
+  },
+  false
+);
 
 // prevent default action
 
@@ -91,11 +92,6 @@ formTag.addEventListener("submit", (e) => {
   formData.append("lname", lname);
   formData.append("phoneNumber", phoneNumber);
   formData.append("institute", institute);
-
-  function handleFiles(e) {
-    const fileList = this.files;
-    formData.append("id", e.target.files[0]);
-  }
 
   // submit form values to webhook
   fetch("https://hook.us1.make.com/b586jqtf2sgmuoyki5vxdcmzd5p69hiw", {
