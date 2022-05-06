@@ -74,6 +74,17 @@ submit.addEventListener(
   false
 );
 
+//Error on wrong input for the email
+
+email.addEventListener("input", function (event) {
+  if (email.validity.typeMismatch) {
+    email.setCustomValidity("We can only accept insitutional emails");
+    email.reportValidity();
+  } else {
+    email.setCustomValidity("");
+  }
+});
+
 // prevent default action
 
 formTag.addEventListener("submit", (e) => {
