@@ -47,28 +47,17 @@ getData().then((data) => {
     selection.innerHTML =
       selection.innerHTML +
       `<li data-value="${element.Name}" class="option">${element.Name}</li>`;
-    const selectChange = document.querySelectorAll(".option");
-    selectChange.forEach((item) => {
-      item.addEventListener("click", function () {
-        console.log(institute.value);
-        const selected = institute.value;
-        const value = records.find((record) => record.Name == selected);
-        console.log(value);
-        email.setAttribute("pattern", `${value.regex}`);
-      });
-    });
   });
 
-  // const selectChange = document.querySelectorAll(".option");
-  // selectChange.forEach((item) => {
-  //   item.addEventListener("click", function () {
-  //     console.log(institute.value);
-  //     const selected = institute.value;
-  //     const value = records.find((record) => record.Name == selected);
-  //     console.log(value);
-  //     email.setAttribute("pattern", `${value.regex}`);
-  //   });
-  // });
+  const selectChange = document.querySelectorAll(".option");
+  selectChange.forEach((item) => {
+    item.addEventListener("click", function (e) {
+      const selected = e.target.innerText;
+      const value = records.find((record) => record.Name == selected);
+      console.log(value);
+      email.setAttribute("pattern", `${value.regex}`);
+    });
+  });
 });
 
 // let formData = new FormData();
