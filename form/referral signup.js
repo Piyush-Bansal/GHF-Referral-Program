@@ -37,7 +37,6 @@ const getData = function () {
 
 getData().then((data) => {
   records = data;
-  console.log(records);
 
   records.forEach((element) => {
     const selection = document.querySelector(".list");
