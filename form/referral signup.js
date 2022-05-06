@@ -63,7 +63,7 @@ getData().then((data) => {
 
 let formData = new FormData();
 
-// add file attachement to the formData
+// add file attachement to the formData.
 
 submit.addEventListener(
   "click",
