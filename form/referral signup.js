@@ -76,7 +76,7 @@ file.addEventListener(
 
 // prevent default action
 
-formTag.addEventListener("submit", (e) => {
+submit.addEventListener("click", (e) => {
   e.preventDefault();
   const fname = document.querySelector("#fname").value;
   const lname = document.querySelector("#lname").value;
