@@ -78,12 +78,12 @@ file.addEventListener(
 
 submit.addEventListener("click", (e) => {
   e.preventDefault();
-  const fname = document.querySelector("#fname").value;
-  const lname = document.querySelector("#lname").value;
-  const phoneNumber = document.querySelector("#phoneNumber").value;
+  const fname = document.querySelector("#first-name").value;
+  const lname = document.querySelector("#last-name").value;
+  const phoneNumber = document.querySelector("#phone-number").value;
   const institute = document.querySelector("#institute").value;
   const email = document.querySelector("#email").value;
-  const code = document.querySelector("#code").value;
+  const code = document.querySelector("#referral-code").value;
   submit.value = "loading...";
   formData.append("fname", fname);
   formData.append("email", email);
