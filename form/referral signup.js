@@ -94,36 +94,40 @@ formTag.addEventListener("submit", (e) => {
   formData.append("phoneNumber", phoneNumber);
   formData.append("institute", institute);
 
-  // submit form values to webhook
-  fetch("https://hook.us1.make.com/b586jqtf2sgmuoyki5vxdcmzd5p69hiw", {
-    method: "POST",
-    "Content-Type": "multipart/form-data; boundary=---generatedboundary",
-    body: formData,
-  })
-    .then((response) => {
-      if (response.ok) {
-        return response.json();
-      } else {
-        return response.text().then((text) => {
-          throw new Error(text);
-        });
-      }
+  if (file.files.length === 0) {
+    console.log(error);
+  } else {
+    // submit form values to webhook
+    fetch("https://hook.us1.make.com/b586jqtf2sgmuoyki5vxdcmzd5p69hiw", {
+      method: "POST",
+      "Content-Type": "multipart/form-data; boundary=---generatedboundary",
+      body: formData,
     })
-    .then((data) => {
-      submit.value = "submit";
-      success.style.display = "block";
-      // add email and phone number values to the verify otp form
-      phoneReferral.innerHTML = phoneNumber;
-      emailReferral.innerHTML = email;
-      //success.innerHTML = `${data.message}`;
-    })
-    .catch((err) => {
-      console.error(err);
-      submit.value = "Submit";
-      error.style.display = "block";
-      error.innerHTML = `
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          return response.text().then((text) => {
+            throw new Error(text);
+          });
+        }
+      })
+      .then((data) => {
+        submit.value = "submit";
+        success.style.display = "block";
+        // add email and phone number values to the verify otp form
+        phoneReferral.innerHTML = phoneNumber;
+        emailReferral.innerHTML = email;
+        //success.innerHTML = `${data.message}`;
+      })
+      .catch((err) => {
+        console.error(err);
+        submit.value = "Submit";
+        error.style.display = "block";
+        error.innerHTML = `
 			<div>${err}</div>`;
-    });
+      });
+  }
 });
 
 //verify OTP form
