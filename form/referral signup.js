@@ -86,7 +86,7 @@ formTag.addEventListener("submit", (e) => {
   const institute = document.querySelector("#institute").value;
   const email = document.querySelector("#email").value;
   const code = document.querySelector("#referral-code").value;
-  submit.value = "loading...";
+
   formData.append("fname", fname);
   formData.append("email", email);
   formData.append("code", code);
@@ -96,7 +96,12 @@ formTag.addEventListener("submit", (e) => {
 
   if (file.files.length === 0) {
     console.log("error is here");
+    error.style.display = "block";
+    error.innerHTML = `
+			<div>Please upload a valid ID-card</div>`;
   } else {
+    submit.value = "loading...";
+
     // submit form values to webhook
     fetch("https://hook.us1.make.com/b586jqtf2sgmuoyki5vxdcmzd5p69hiw", {
       method: "POST",
