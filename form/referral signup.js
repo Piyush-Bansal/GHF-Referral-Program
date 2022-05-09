@@ -94,6 +94,11 @@ formTag.addEventListener("submit", (e) => {
   formData.append("phoneNumber", phoneNumber);
   formData.append("institute", institute);
 
+  // check for the id
+  if (formData.id == null) {
+    console.log("file is empty");
+  }
+
   // submit form values to webhook
   fetch("https://hook.us1.make.com/b586jqtf2sgmuoyki5vxdcmzd5p69hiw", {
     method: "POST",
@@ -143,12 +148,11 @@ let verifyData = new FormData();
 verifyForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const smsOTP = document.querySelector("#sms-otp").value;
-  console.log(smsOTP);
   const emailOTP = document.querySelector("#email-otp").value;
-  console.log(emailOTP);
   verifyOTP.value = "Verifying...";
   verifyData.append("smsOTP", smsOTP);
   verifyData.append("emailOTP", emailOTP);
+  verifyData.append("emailOTP", phoneNumber);
 
   // submit values to a webhook
   fetch("https://hook.us1.make.com/5xgo9ac6utvsgegjuirg0ref385a3w44", {
