@@ -72,4 +72,7 @@ getData.then((data) => {
 
 // grab email element
 const email = document.querySelector("#email");
+const twitter = document.querySelector("#twitter");
+
 email.innerHTML = `I've started my journey towards landing great tech jobs with GHF's courses - you should too! Use my referral code ${refCode} to get 20% off on your subscription. Join the coolest tech community today!`;
+twitter.href = `https://twitter.com/intent/tweet?text=I've%20started%20my%20tech%20journey%20with%20GHF,%20and%20I%20think%20you%20should%20too!%20Use%20my%20referral%20code%20${refCode}%20to%20get%2020%25%20off%20on%20your%20subscription!%20%0ARegister%20at%20www.univ.ai/ghf/tell-a-friend%0A`;
