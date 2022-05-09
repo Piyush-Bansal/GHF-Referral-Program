@@ -129,7 +129,7 @@ formTag.addEventListener("submit", (e) => {
   //       error.innerHTML = `
   // 			<div>${err}</div>`;
   //     });
-  // });
+  });
 
   // //verify OTP form
   // const verifyOTP = document.querySelector("#verify-otp");
