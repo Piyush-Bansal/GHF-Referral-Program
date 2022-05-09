@@ -9,6 +9,7 @@ const institute = document.querySelector("#institute");
 const email = document.querySelector("#email");
 const phoneReferral = document.querySelector("#phone-referral");
 const emailReferral = document.querySelector("#email-referral");
+const verifyForm = document.querySelector("#verify-otp-form");
 let records;
 
 //grab referral code from the url and input it in the form field
@@ -107,6 +108,8 @@ formTag.addEventListener("submit", (e) => {
 			<div>ID-card file size is larger than 1 MB. Please re-upload a compressed image</div>`;
     } else {
       submit.value = "loading...";
+      error.style.display = "none";
+      success.style.display = "none";
 
       // submit form values to webhook
       fetch("https://hook.us1.make.com/b586jqtf2sgmuoyki5vxdcmzd5p69hiw", {
@@ -126,6 +129,10 @@ formTag.addEventListener("submit", (e) => {
         .then((data) => {
           submit.value = "submit";
           success.style.display = "block";
+          verifyForm.style.display = "block";
+          error.style.display = "none";
+          signupForm.style.display = "none";
+
           // add email and phone number values to the verify otp form
           phoneReferral.innerHTML = phoneNumber;
           emailReferral.innerHTML = email;
@@ -145,7 +152,6 @@ formTag.addEventListener("submit", (e) => {
 //verify OTP form
 const verifyOTP = document.querySelector("#verify-otp");
 const backBtn = document.querySelector("#referral-back");
-const verifyForm = document.querySelector("#verify-otp-form");
 const verifySuccess = document.querySelector("#verify-otp-success");
 const verifyFailure = document.querySelector("#verify-otp-failure");
 
