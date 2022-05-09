@@ -100,38 +100,45 @@ formTag.addEventListener("submit", (e) => {
     error.innerHTML = `
 			<div>Please upload a valid ID-card</div>`;
   } else {
-    submit.value = "loading...";
+    if (file.files.size > 1024) {
+      console.log("error is here");
+      error.style.display = "block";
+      error.innerHTML = `
+			<div>ID-card file size is larger than 1 MB. Please re-upload a compressed image</div>`;
+    } else {
+      submit.value = "loading...";
 
-    // submit form values to webhook
-    fetch("https://hook.us1.make.com/b586jqtf2sgmuoyki5vxdcmzd5p69hiw", {
-      method: "POST",
-      "Content-Type": "multipart/form-data; boundary=---generatedboundary",
-      body: formData,
-    })
-      .then((response) => {
-        if (response.ok) {
-          return response.json();
-        } else {
-          return response.text().then((text) => {
-            throw new Error(text);
-          });
-        }
+      // submit form values to webhook
+      fetch("https://hook.us1.make.com/b586jqtf2sgmuoyki5vxdcmzd5p69hiw", {
+        method: "POST",
+        "Content-Type": "multipart/form-data; boundary=---generatedboundary",
+        body: formData,
       })
-      .then((data) => {
-        submit.value = "submit";
-        success.style.display = "block";
-        // add email and phone number values to the verify otp form
-        phoneReferral.innerHTML = phoneNumber;
-        emailReferral.innerHTML = email;
-        //success.innerHTML = `${data.message}`;
-      })
-      .catch((err) => {
-        console.error(err);
-        submit.value = "Submit";
-        error.style.display = "block";
-        error.innerHTML = `
+        .then((response) => {
+          if (response.ok) {
+            return response.json();
+          } else {
+            return response.text().then((text) => {
+              throw new Error(text);
+            });
+          }
+        })
+        .then((data) => {
+          submit.value = "submit";
+          success.style.display = "block";
+          // add email and phone number values to the verify otp form
+          phoneReferral.innerHTML = phoneNumber;
+          emailReferral.innerHTML = email;
+          //success.innerHTML = `${data.message}`;
+        })
+        .catch((err) => {
+          console.error(err);
+          submit.value = "Submit";
+          error.style.display = "block";
+          error.innerHTML = `
 			<div>${err}</div>`;
-      });
+        });
+    }
   }
 });
 
