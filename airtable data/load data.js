@@ -69,3 +69,7 @@ getData.then((data) => {
       "Somethings not right, please check your dashboard link";
   }
 });
+
+// grab email element
+const email = document.querySelector("#email");
+email.innerHTML = `I've started my journey towards landing great tech jobs with GHF's courses - you should too! Use my referral code ${refCode} to get 20% off on your subscription. Join the coolest tech community today!`;
