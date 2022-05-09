@@ -12,6 +12,16 @@ const emailReferral = document.querySelector("#email-referral");
 const verifyForm = document.querySelector("#verify-otp-form");
 let records;
 
+//institute form validation
+email.addEventListener("input", function (event) {
+  if (email.validity.typeMismatch) {
+    email.setCustomValidity("I am expecting an e-mail address!");
+    email.reportValidity();
+  } else {
+    email.setCustomValidity("");
+  }
+});
+
 //grab referral code from the url and input it in the form field
 const queryString = window.location.search;
 const urlPara = new URLSearchParams(queryString);
