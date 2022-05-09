@@ -95,7 +95,7 @@ formTag.addEventListener("submit", (e) => {
   formData.append("institute", institute);
 
   if (file.files.length === 0) {
-    console.log(error);
+    console.log("error");
   } else {
     // submit form values to webhook
     fetch("https://hook.us1.make.com/b586jqtf2sgmuoyki5vxdcmzd5p69hiw", {
