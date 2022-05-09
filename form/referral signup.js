@@ -94,65 +94,60 @@ formTag.addEventListener("submit", (e) => {
   formData.append("phoneNumber", phoneNumber);
   formData.append("institute", institute);
 
-  // check for the id
-  if (formData.id == null) {
-    console.log("file is empty");
-  }
+  // submit form values to webhook
+  fetch("https://hook.us1.make.com/b586jqtf2sgmuoyki5vxdcmzd5p69hiw", {
+    method: "POST",
+    "Content-Type": "multipart/form-data; boundary=---generatedboundary",
+    body: formData,
+  })
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        return response.text().then((text) => {
+          throw new Error(text);
+        });
+      }
+    })
+    .then((data) => {
+      submit.value = "submit";
+      success.style.display = "block";
+      // add email and phone number values to the verify otp form
+      phoneReferral.innerHTML = phoneNumber;
+      emailReferral.innerHTML = email;
+      //success.innerHTML = `${data.message}`;
+    })
+    .catch((err) => {
+      console.error(err);
+      submit.value = "Submit";
+      error.style.display = "block";
+      error.innerHTML = `
+			<div>${err}</div>`;
+    });
+});
 
-  //   // submit form values to webhook
-  //   fetch("https://hook.us1.make.com/b586jqtf2sgmuoyki5vxdcmzd5p69hiw", {
-  //     method: "POST",
-  //     "Content-Type": "multipart/form-data; boundary=---generatedboundary",
-  //     body: formData,
-  //   })
-  //     .then((response) => {
-  //       if (response.ok) {
-  //         return response.json();
-  //       } else {
-  //         return response.text().then((text) => {
-  //           throw new Error(text);
-  //         });
-  //       }
-  //     })
-  //     .then((data) => {
-  //       submit.value = "submit";
-  //       success.style.display = "block";
-  //       // add email and phone number values to the verify otp form
-  //       phoneReferral.innerHTML = phoneNumber;
-  //       emailReferral.innerHTML = email;
-  //       //success.innerHTML = `${data.message}`;
-  //     })
-  //     .catch((err) => {
-  //       console.error(err);
-  //       submit.value = "Submit";
-  //       error.style.display = "block";
-  //       error.innerHTML = `
-  // 			<div>${err}</div>`;
-  //     });
-  });
+//verify OTP form
+const verifyOTP = document.querySelector("#verify-otp");
+const backBtn = document.querySelector("#referral-back");
+const verifyForm = document.querySelector("#verify-otp-form");
+const verifySuccess = document.querySelector("#verify-otp-success");
+const verifyFailure = document.querySelector("#verify-otp-failure");
 
-  // //verify OTP form
-  // const verifyOTP = document.querySelector("#verify-otp");
-  // const backBtn = document.querySelector("#referral-back");
-  // const verifyForm = document.querySelector("#verify-otp-form");
-  // const verifySuccess = document.querySelector("#verify-otp-success");
-  // const verifyFailure = document.querySelector("#verify-otp-failure");
+//when back button is pressed hide verify OTP form and show GHF form
+backBtn.addEventListener("click", () => {
+  signupForm.style.display = "block";
+  verifyForm.style.display = "none";
+});
 
-  // //when back button is pressed hide verify OTP form and show GHF form
-  // backBtn.addEventListener("click", () => {
-  //   signupForm.style.display = "block";
-  //   verifyForm.style.display = "none";
-  // });
-
-  // let verifyData = new FormData();
-  // verifyForm.addEventListener("submit", (e) => {
-  //   e.preventDefault();
-  //   const smsOTP = document.querySelector("#sms-otp").value;
-  //   const emailOTP = document.querySelector("#email-otp").value;
-  //   verifyOTP.value = "Verifying...";
-  //   verifyData.append("smsOTP", smsOTP);
-  //   verifyData.append("emailOTP", emailOTP);
-  //   verifyData.append("emailOTP", phoneNumber);
+let verifyData = new FormData();
+verifyForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const smsOTP = document.querySelector("#sms-otp").value;
+  const emailOTP = document.querySelector("#email-otp").value;
+  verifyOTP.value = "Verifying...";
+  verifyData.append("smsOTP", smsOTP);
+  verifyData.append("emailOTP", emailOTP);
+  verifyData.append("emailOTP", phoneNumber);
 
   // submit values to a webhook
   fetch("https://hook.us1.make.com/5xgo9ac6utvsgegjuirg0ref385a3w44", {
