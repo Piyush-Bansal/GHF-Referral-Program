@@ -100,7 +100,7 @@ formTag.addEventListener("submit", (e) => {
     error.innerHTML = `
 			<div>Please upload a valid ID-card</div>`;
   } else {
-    if (file.files.size > 1024) {
+    if (file.files[0].size > 1000000) {
       console.log("error is here");
       error.style.display = "block";
       error.innerHTML = `
