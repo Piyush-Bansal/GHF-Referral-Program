@@ -13,7 +13,7 @@ const verifyForm = document.querySelector("#verify-otp-form");
 let records;
 
 //institute form validation
-email.setCustomValidity("I am expecting an e-mail address!");
+email.setCustomValidity("We only accept institutional email address");
 
 //grab referral code from the url and input it in the form field
 const queryString = window.location.search;
