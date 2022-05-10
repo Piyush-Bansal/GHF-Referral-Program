@@ -14,7 +14,7 @@ const verifyFormContent = document.querySelector("#email-form");
 
 let records;
 
-// //institute form validation
+// //institute form validation.
 // email.setCustomValidity("We need your institutional email address");
 
 email.addEventListener("invalid", () => {
