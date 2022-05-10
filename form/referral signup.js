@@ -17,10 +17,6 @@ let records;
 // //institute form validation.
 // email.setCustomValidity("We need your institutional email address");
 
-email.addEventListener("invalid", () => {
-  email.setCustomValidity("We need your institutional email address");
-});
-
 //grab referral code from the url and input it in the form field
 const queryString = window.location.search;
 const urlPara = new URLSearchParams(queryString);
