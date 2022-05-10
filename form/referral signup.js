@@ -10,6 +10,8 @@ const email = document.querySelector("#email");
 const phoneReferral = document.querySelector("#phone-referral");
 const emailReferral = document.querySelector("#email-referral");
 const verifyForm = document.querySelector("#verify-otp-form");
+const verifyFormContent = document.querySelector("#email-form");
+
 let records;
 
 // //institute form validation
@@ -192,7 +194,7 @@ verifyForm.addEventListener("submit", (e) => {
     })
     .then((data) => {
       verifyFailure.style.display = "none";
-      verifyForm.style.display = "none";
+      verifyFormContent.style.display = "none";
       verifySuccess.style.display = "block";
     })
     .catch((err) => {
