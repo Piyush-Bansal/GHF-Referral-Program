@@ -173,7 +173,7 @@ verifyForm.addEventListener("submit", (e) => {
   verifyOTP.value = "Verifying...";
   verifyData.append("smsOTP", smsOTP);
   verifyData.append("emailOTP", emailOTP);
-  verifyData.append("emailOTP", phoneNumber);
+  verifyData.append("phoneNumber", phoneNumber);
 
   // submit values to a webhook
   fetch("https://hook.us1.make.com/5xgo9ac6utvsgegjuirg0ref385a3w44", {
