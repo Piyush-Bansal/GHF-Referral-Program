@@ -86,7 +86,9 @@ formTag.addEventListener("submit", (e) => {
   e.preventDefault();
   const fname = document.querySelector("#first-name").value;
   const lname = document.querySelector("#last-name").value;
-  const phoneNumber = document.querySelector("#phone-number").value;
+  const countryCode = document.querySelector("#country-code").value;
+  let phoneNumber = document.querySelector("#phone-number").value;
+  phoneNumber = countryCode + phoneNumber;
   const institute = document.querySelector("#institute").value;
   const email = document.querySelector("#email").value;
   const code = document.querySelector("#referral-code").value;
@@ -131,7 +133,6 @@ formTag.addEventListener("submit", (e) => {
         })
         .then((data) => {
           submit.value = "submit";
-          success.style.display = "block";
           verifyForm.style.display = "block";
           error.style.display = "none";
           signupForm.style.display = "none";
