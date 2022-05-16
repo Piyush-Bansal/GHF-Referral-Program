@@ -211,6 +211,7 @@ verifyForm.addEventListener("submit", (e) => {
     });
 });
 
+//email validation message
 email.addEventListener("invalid", function (event) {
   if (email.validity.patternMismatch) {
     email.setCustomValidity("Please use your institution email address");
