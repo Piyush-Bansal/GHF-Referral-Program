@@ -50,7 +50,6 @@ const loadData = async () => {
 
 const getData = loadData();
 getData.then((data) => {
-  console.log(data[0]);
   responseData = data[0];
   if (responseData != undefined) {
     loaderContainer.style.display = "none";
