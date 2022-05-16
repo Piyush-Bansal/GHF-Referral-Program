@@ -6,7 +6,7 @@ const failure = document.querySelector(".w-form-fail");
 const form = document.querySelector("#wf-form-Share-email");
 
 //webhook address
-const webhookUrl = "https://hook.us1.make.com/9bjsg4zukmh6gxd1ogihei7fq7vj69u1";
+const webhookUrl = "https://hook.us1.make.com/1fkxoj996etbxpa5tlt60w7g14suoh3j";
 
 //add event listner to the submit button
 sendBtn.addEventListener("click", function (e) {
