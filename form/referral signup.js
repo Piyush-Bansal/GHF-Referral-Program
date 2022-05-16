@@ -213,13 +213,3 @@ verifyForm.addEventListener("submit", (e) => {
 			<div>${err}</div>`;
     });
 });
-
-//email event listner
-email.addEventListener("input", function (event) {
-  if (email.validity.typeMismatch) {
-    email.setCustomValidity("Please use your institutional email address");
-    email.reportValidity();
-  } else {
-    email.setCustomValidity("");
-  }
-});
