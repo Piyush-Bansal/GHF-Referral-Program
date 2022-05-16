@@ -103,19 +103,16 @@ formTag.addEventListener("submit", (e) => {
   formData.append("institute", instituteValue);
 
   if (file.files.length === 0) {
-    console.log("error is here");
     error.style.display = "block";
     error.innerHTML = `
 			<div>Please upload a valid ID-card</div>`;
   } else {
     if (file.files[0].size > 1000000) {
-      console.log("error is here");
       error.style.display = "block";
       error.innerHTML = `
 			<div>ID-card file size is larger than 1 MB. Please re-upload a compressed image</div>`;
     } else {
       if (instituteValue == "") {
-        console.log("institute is empty");
         error.style.display = "block";
         error.innerHTML = `
 			<div>Please choose an institute</div>`;
@@ -216,7 +213,7 @@ verifyForm.addEventListener("submit", (e) => {
 
 email.addEventListener("input", function (event) {
   if (email.validity.patternMismatch) {
-    email.setCustomValidity("I am expecting an e-mail address!");
+    email.setCustomValidity("Please use your institution email address");
     email.reportValidity();
   } else {
     email.setCustomValidity("");
