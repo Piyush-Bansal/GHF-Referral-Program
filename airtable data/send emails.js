@@ -20,6 +20,7 @@ sendBtn.addEventListener("click", function (e) {
   formResponse.append("sendto", sendTo);
   formResponse.append("message", message);
   formResponse.append("from", userName);
+  formResponse.append("code", refCode);
 
   fetch(webhookUrl, {
     method: "POST",
