@@ -91,7 +91,7 @@ formTag.addEventListener("submit", (e) => {
   const countryCode = document.querySelector("#country-code").value;
   let phoneNumber = document.querySelector("#phone-number").value;
   phoneNumber = countryCode + phoneNumber;
-  const institute = document.querySelector("#institute").value;
+  const instituteValue = institute.value;
   const email = document.querySelector("#email").value;
   const code = document.querySelector("#referral-code").value;
 
@@ -100,7 +100,7 @@ formTag.addEventListener("submit", (e) => {
   formData.append("code", code);
   formData.append("lname", lname);
   formData.append("phoneNumber", phoneNumber);
-  formData.append("institute", institute);
+  formData.append("institute", instituteValue);
 
   if (file.files.length === 0) {
     console.log("error is here");
@@ -114,7 +114,7 @@ formTag.addEventListener("submit", (e) => {
       error.innerHTML = `
 			<div>ID-card file size is larger than 1 MB. Please re-upload a compressed image</div>`;
     } else {
-      if (institute.value === "") {
+      if (instituteValue == "") {
         console.log("institute is empty");
         error.style.display = "block";
         error.innerHTML = `
