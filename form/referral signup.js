@@ -215,7 +215,7 @@ verifyForm.addEventListener("submit", (e) => {
 });
 
 email.addEventListener("input", function (event) {
-  if (email.validity.typeMismatch) {
+  if (email.validity.patternMismatch) {
     email.setCustomValidity("I am expecting an e-mail address!");
     email.reportValidity();
   } else {
