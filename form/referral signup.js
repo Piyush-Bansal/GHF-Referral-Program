@@ -114,7 +114,7 @@ formTag.addEventListener("submit", (e) => {
       error.innerHTML = `
 			<div>ID-card file size is larger than 1 MB. Please re-upload a compressed image</div>`;
     } else {
-      if (institute.value == undefined) {
+      if (institute.value == "") {
         console.log("institute is empty");
         error.style.display = "block";
         error.innerHTML = `
