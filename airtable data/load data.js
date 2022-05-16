@@ -2,6 +2,7 @@
 const queryString = window.location.search;
 const urlPara = new URLSearchParams(queryString);
 const refCode = urlPara.get("uuid");
+let userName;
 
 //grab loader element data
 const loaderContainer = document.querySelector(".ref_loader");
@@ -60,6 +61,7 @@ getData.then((data) => {
 
     const userNameTag = document.querySelector("#userName");
     userNameTag.innerHTML = `${firstName} ${lastName}`;
+    userName = userNameTag.innerHTML;
     const refCountTag = document.querySelector("#refCount");
     refCountTag.innerHTML = `${refCount}`;
   } else {
