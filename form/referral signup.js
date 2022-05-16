@@ -212,7 +212,7 @@ verifyForm.addEventListener("submit", (e) => {
 });
 
 //email validation message
-email.addEventListener("change", function (event) {
+email.addEventListener("input", function (event) {
   if (email.validity.patternMismatch) {
     email.setCustomValidity("Please use your institution email address");
     email.reportValidity();
